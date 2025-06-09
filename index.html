@@ -1,10 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>label</title>
-    <link rel="stylesheet" href="index.css">
+  <title>Form Display</title>
+  <link rel="stylesheet" href="index.css">
 </head>
 <body>
     <u1 class="nav">
@@ -12,23 +10,56 @@
         <li>ABOUT</li>
         <li>SERVICES</li>
         <li>CONTACT</li>
-        <br>
     </u1>
-    
-    <form>
-        <label for=" name">Name:</label>
-        <input type="text">
-        <br>
-        <label for="age">Reg num:</label>
-        <input type="number">
-        <br>
-        <label for="email">Email:</label>
-        <input type="text" required>
-        <br>
-        <label for="Department">Department:</label>
-        <input type="text">
-        <br>
-        <input type="submit" value="submit">
-    </form>
+
+  <form id="myForm">
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" id="name">
+    </div>
+
+    <div class="form-group">
+      <label for="regno">Reg. No</label>
+      <input type="text" id="regno">
+
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" id="email">
+    </div>
+
+    <div class="form-group">
+      <label for="department">Department</label>
+      <input type="text" id="department">
+    </div>
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <div id="output"></div>
+
+  <script>
+    const form = document.getElementById('myForm');
+    const output = document.getElementById('output');
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const name = document.getElementById('name').value;
+      const regno = document.getElementById('regno').value;
+      const email = document.getElementById('email').value;
+      const department = document.getElementById('department').value;
+
+      output.innerHTML = `
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Reg. No:</strong> ${regno}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Department:</strong> ${department}</p>
+      `;
+    });
+  </script>
+
 </body>
 </html>
+
